@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { User } from './user';
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <User
+        name='Felipe'
+        avatar='https://avatars.githubusercontent.com/u/47896948?v=4'
+      />
     </div>
   );
 }
