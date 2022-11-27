@@ -3,6 +3,12 @@ import './App.css';
 import { User } from './user';
 
 function App() {
+  function handleSubmit(event) {
+    event.preventDefault()
+    console.log(event.target.name.value)
+    console.log(event.target.lastName.value)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,6 +29,11 @@ function App() {
         name='Felipe'
         avatar='https://avatars.githubusercontent.com/u/47896948?v=4'
       />
+      <form onSubmit={handleSubmit}>
+        <input type='text' name='name' />
+        <input type='text' name='lastName' />
+        <input type='submit' />
+      </form>
     </div>
   );
 }
