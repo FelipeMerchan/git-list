@@ -1,12 +1,16 @@
-export const User = ({ name, avatar }) => {
+import { useState } from "react"
+
+export const User = ({ counter, name, avatar }) => {
+    const [calculatedName, setCalculatedName] = useState(name)
+
     function onClick() {
-        console.log(`Nombre: ${name}`)
+        setCalculatedName('Daniel')
     }
 
     return (
         <div className='User' onClick={onClick}>
             <img src={avatar} alt='' />
-            <p>{name}</p>
+            <p>Hemos dado clic en {calculatedName} por {counter} veces</p>
         </div>
     )
 }
