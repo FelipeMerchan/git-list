@@ -3,7 +3,6 @@ import Profile from './components/profile';
 import Filters from './components/filters';
 import RepoList from './components/repo-list';
 import Search from './components/search';
-import './App.css';
 
 function App() {
   return (
