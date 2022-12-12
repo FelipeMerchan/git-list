@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import props from '../profile-data'
+
 const ProfileStyled = styled.div`
   grid-area: profile;
 
@@ -46,42 +48,57 @@ const ProfileStyled = styled.div`
 `
 
 function Profile() {
+  const {
+    name,
+    login,
+    avatar_url,
+    bio,
+    followers,
+    following,
+    location,
+    twitter_username,
+    blog,
+  } = props
+
   return (
     <ProfileStyled>
-      <img className='avatar' width='278' height='278' src='' alt='' />
-      <p className='name'>Felipe Merchan</p>
-      <p className='username'>FelipeMerchan</p>
+      <img
+        className='avatar'
+        width='278'
+        height='278'
+        src={avatar_url}
+        alt=''
+      />
+      <p className='name'>{name}</p>
+      <p className='username'>{login}</p>
       <div className='buttons'>
         <button>Follow</button>
         <button>Sponsor</button>
       </div>
       <p className='bio info'>
-        Hi
+        {bio}
       </p>
       <p className='followers info'>
-        * 10 <span>followers</span> <span>*</span> 15 <span>following</span>
-      </p>
-      <p className='stars info'>
-        * 81
+        * {followers} <span>followers</span> <span>*</span> {following} <span>following</span>
       </p>
       <p className='location info'>
-        * Bogota
+        * {location}
       </p>
       <a
         className='info'
-        href='https://felipemerchan.com'
+        href={blog}
         target='_blank'
         rel='noreferrer'
       >
-        @FelipeMerchan
+        {blog}
       </a>
       <a
         className='info'
-        href='https://felipemerchan.com'
+        href={`https://twitter.com/${twitter_username}`}
         target='_blank'
         rel='noreferrer'
       >
-        https://felipemerchan.com
+        @{twitter_username}
       </a>
     </ProfileStyled>
   )
