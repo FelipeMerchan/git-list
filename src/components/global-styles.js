@@ -7,12 +7,12 @@ const GlobalStylesStyled = createGlobalStyle`
     --black: #141414; 
     --grey: #8b949e; 
     --bg: #0d1117; 
-    --button: #22262c; 
+    --button-bg: #22262c; 
     --grey-2: #c5ced7; 
     --pink: #cc68a0; 
     --yellow: #f1e05a; 
     --purple: #563d7c; 
-    --black-2: #171b21; 
+    --black-2: #171b21;
     --headline1: 600 1.625rem/2rem Inter; 
     --button: 500 0.875rem/1.5rem Inter; 
     --headline2-semi-bold: 600 1.25rem/1.5rem Inter; 
@@ -23,11 +23,13 @@ const GlobalStylesStyled = createGlobalStyle`
     --body2-semi-bold: 600 0.875rem/1.5rem Inter; 
     --caption-regular: 400 0.75rem/1.125rem Inter; 
     --caption-medium: 500 0.75rem/1.125rem Inter; 
+    --space-smaller: .25rem;
     --space: .5rem;
     --space-2: 1rem;
     --space-3: 1.5rem;
     --space-4: 2rem;
     --space-5: 2.5rem;
+    --border-radius: .5rem;
   }
 
   body {

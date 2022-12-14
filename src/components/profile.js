@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import props from '../profile-data'
+import Button from './button'
 
 const ProfileStyled = styled.div`
   grid-area: profile;
@@ -49,15 +50,15 @@ const ProfileStyled = styled.div`
 
 function Profile() {
   const {
-    name,
-    login,
     avatar_url,
     bio,
+    blog,
     followers,
     following,
     location,
+    login,
+    name,
     twitter_username,
-    blog,
   } = props
 
   return (
@@ -72,8 +73,15 @@ function Profile() {
       <p className='name'>{name}</p>
       <p className='username'>{login}</p>
       <div className='buttons'>
-        <button>Follow</button>
-        <button>Sponsor</button>
+        <Button
+          className='custom'
+          text='Follow'
+          link='#'
+        />
+        <Button
+          text='Sponsor'
+          icon={<i>icon</i>}
+        />
       </div>
       <p className='bio info'>
         {bio}
