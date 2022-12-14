@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import props from '../profile-data'
 import Button from './button'
+import Icon from './icon'
 
 const ProfileStyled = styled.div`
   grid-area: profile;
@@ -80,7 +81,13 @@ function Profile() {
         />
         <Button
           text='Sponsor'
-          icon={<i>icon</i>}
+          icon={
+            <Icon
+              name='heart'
+              size={24}
+              color='var(--pink)'
+            />
+          }
         />
       </div>
       <p className='bio info'>
