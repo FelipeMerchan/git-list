@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import Language from './language'
+
 const RepoItemStyled = styled.div`
   display: flex;
   gap: var(--space-2);
@@ -78,6 +80,9 @@ function RepoItem(props) {
             }
           </div>
         ) : null
+      }
+      {
+        props.language ? <Language name={props.language} /> : null
       }
     </RepoItemStyled>
   )
