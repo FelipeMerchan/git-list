@@ -1,8 +1,5 @@
-import { useEffect } from 'react'
-import { useState } from 'react'
 import styled from 'styled-components'
 
-import props from '../profile-data'
 import Button from './button'
 import Icon from './icon'
 
@@ -51,7 +48,7 @@ const ProfileStyled = styled.div`
   }
 `
 
-function Profile() {
+function Profile(props) {
   const {
     avatar_url,
     bio,
@@ -63,11 +60,6 @@ function Profile() {
     name,
     twitter_username,
   } = props
-  const [coolName, setCoolName] = useState(name)
-  useEffect(() => {
-    setCoolName('Felipe')
-  }, [])
-  
 
   return (
     <ProfileStyled>
@@ -78,7 +70,7 @@ function Profile() {
         src={avatar_url}
         alt=''
       />
-      <p className='name'>{coolName}</p>
+      <p className='name'>{name}</p>
       <p className='username'>{login}</p>
       <div className='buttons'>
         <Button
