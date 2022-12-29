@@ -10,15 +10,15 @@ import { getRepos, getUser } from './services/users';
 
 function App() {
   const params = useParams()
-  let userName = params.user
-  if (!userName) {
-    userName = 'felipemerchan'
+  let username = params.user
+  if (!username) {
+    username = 'felipemerchan'
   }
   const [user, setUser] = useState({})
   const [repos, setRepos] = useState([])
 
   useEffect(() => {
-    getUser(userName).then(({ data, isError }) => {
+    getUser(username).then(({ data, isError }) => {
       if (isError) {
         console.log('No hemos encontrado a este usuario')
         return
@@ -27,7 +27,7 @@ function App() {
       setUser(data)
     })
 
-    getRepos(userName).then(({ data, isError }) => {
+    getRepos(username).then(({ data, isError }) => {
       if (isError) {
         console.log('No hemos encontrado los respositorios de este usuario')
         return
@@ -35,7 +35,7 @@ function App() {
 
       setRepos(data)
     })
-  }, [userName])
+  }, [username])
 
   return (
     <Layout>
