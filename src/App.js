@@ -26,9 +26,7 @@ function App() {
 
       setUser(data)
     })
-  }, [])
 
-  useEffect(() => {
     getRepos(userName).then(({ data, isError }) => {
       if (isError) {
         console.log('No hemos encontrado los respositorios de este usuario')
@@ -37,7 +35,7 @@ function App() {
 
       setRepos(data)
     })
-  }, [])
+  }, [userName])
 
   return (
     <Layout>

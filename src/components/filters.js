@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import Icon from './icon'
+import ModalContent from './modal'
 
 const FiltersStyled = styled.div`
   grid-area: filters;
@@ -11,6 +12,7 @@ function Filters() {
   return (
     <FiltersStyled>
       Filters
+      <ModalContent />
       <Icon name='arrow-down' />
       <Icon name='branch' />
       <Icon name='book' />
