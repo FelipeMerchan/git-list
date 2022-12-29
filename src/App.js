@@ -5,6 +5,7 @@ import Layout from './components/layout';
 import Profile from './components/profile';
 import Filters from './components/filters';
 import RepoList from './components/repo-list';
+import Modal from './components/modal'
 import Search from './components/search';
 import { getRepos, getUser } from './services/users';
 
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <Layout>
+      <Modal />
       {/* Profile */}
       <Profile {...user} />
       {/* Filers */}
