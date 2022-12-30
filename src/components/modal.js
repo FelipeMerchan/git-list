@@ -29,12 +29,16 @@ class ModalPortal extends React.Component {
   }
 }
 
-export default function Modal() {
-  return (
-    <ModalPortal>
-      <ModalContent />
-    </ModalPortal>
-  )
+export default function Modal({ isActive, setModal }) {
+  if (isActive) {
+    return (
+      <ModalPortal>
+        <ModalContent setModal={setModal} />
+      </ModalPortal>
+    )
+  }
+
+  return null
 }
 
 const ModalContentStyled = styled.form`
@@ -57,7 +61,7 @@ const ModalContentStyled = styled.form`
   }
 `
 
-function ModalContent() {
+function ModalContent({ setModal }) {
   const form = useRef(null)
   const navigator = useNavigate()
 
@@ -65,6 +69,7 @@ function ModalContent() {
     event.preventDefault()
     const formData = new FormData(form.current)
     navigator(`/${formData.get('username')}`)
+    setModal(false)
   }
 
 
