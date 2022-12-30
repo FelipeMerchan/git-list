@@ -33,6 +33,7 @@ const GlobalStylesStyled = createGlobalStyle`
   }
 
   body {
+    margin: 0;
     font: var(--body1-regular);
     color: var(--grey);
     background-color: var(--bg);
