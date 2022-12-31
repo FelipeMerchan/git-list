@@ -8,10 +8,17 @@ const RepoListStyled = styled.div`
   gap: var(--space-4);
 `
 
-function RepoList({ repoList }) {
+function RepoList({ search, repoList }) {
+  let list = repoList
+  if (search !== '') {
+    list = list.filter(repo => {
+      return repo.name.search(search) >= 0
+    })
+  }
+
   return (
     <RepoListStyled>
-      {repoList.map((repo) => {
+      {list.map((repo) => {
         return <RepoItem {...repo} key={repo.id} />
       })}
     </RepoListStyled>

@@ -25,15 +25,21 @@ const FiltersStyled = styled.div`
   }
 `
 
-function Filters({ repoListCount }) {
+function Filters({ repoListCount, setSearch }) {
+  console.log('render')
+  function handleChange(event) {
+    setSearch(event.target.value)
+  }
+
   return (
     <FiltersStyled>
       <h2 className='count'>
-        Repositorios {repoListCount}
+        Repositorios ({repoListCount})
       </h2>
       <div className='action-list'>
         <InputText
           type='search'
+          onChange={handleChange}
           placeholder='Busca un repositorio'
         />
         <div className='select-list'>
