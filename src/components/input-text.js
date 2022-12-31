@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const InputText = styled.input`
+  flex: 1;
   padding-inline: var(--space-2);
   padding-block: var(--space);
   font: var(--body2-regular);
