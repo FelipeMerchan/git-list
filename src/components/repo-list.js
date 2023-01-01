@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import EmptyState from './empty-state'
 import RepoItem from './repo-item'
 
 const RepoListStyled = styled.div`
@@ -28,6 +29,9 @@ function RepoList({ filterByLanguage, search, repoList }) {
       {list.map((repo) => {
         return <RepoItem {...repo} key={repo.id} />
       })}
+      {
+        list.length === 0 ? <EmptyState /> : null
+      }
     </RepoListStyled>
   )
 }
