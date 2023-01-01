@@ -18,7 +18,7 @@ const ProfileStyled = styled.div`
     margin: 0;
     margin-block-end: var(--space);
     font: var(--headline1);
-    color: var(--white);
+    color: var(--title-color);
   }
   
   .username {

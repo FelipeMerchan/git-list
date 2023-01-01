@@ -8,6 +8,10 @@ const GlobalStylesStyled = createGlobalStyle`
     --grey: #8b949e; 
     --bg: #0d1117; 
     --button-bg: #22262c; 
+    --badge-bg: rgba(56, 139, 253, .15); 
+    --button-text: #fffffe;
+    --input-text: #fffffe;
+    --title-color: #fffffe;
     --grey-2: #c5ced7; 
     --pink: #cc68a0; 
     --yellow: #f1e05a; 
@@ -37,6 +41,28 @@ const GlobalStylesStyled = createGlobalStyle`
     font: var(--body1-regular);
     color: var(--grey);
     background-color: var(--bg);
+  }
+
+  @media screen and (prefers-color-scheme: light) {
+    :root {
+      --bg: #fffffe; 
+      --button-bg: #fffffe;
+      --button-text: #8b949e;
+      --input-text: #8b949e;
+      --title-color: #15223A;
+    }
+
+    .select-list select {
+      outline: 1px solid var(--grey);
+    }
+
+    .details-item svg path {
+      stroke: var(--grey);
+    }
+
+    .search-icon svg path {
+      fill: var(--grey);
+    }
   }
 `
 

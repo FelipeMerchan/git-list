@@ -11,7 +11,7 @@ const ButtonStyled = styled.button`
   padding-block: var(--space-smaller);
   font: var(--button);
   text-decoration: none !important;
-  color: var(--white);
+  color: var(--button-text);
   border-radius: var(--border-radius);
   background-color: var(--button-bg);
   cursor: pointer;
@@ -49,7 +49,7 @@ export const ButtonContrast = styled(Button)`
   background: var(--white);
 
   &:hover {
-    color: var(--white);
+    color: var(--button-text);
     background: var(--button-bg);
   }
 `

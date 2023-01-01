@@ -8,7 +8,7 @@ const InputText = styled.input`
   border: 1px solid var(--grey);
   background: var(--bg);
   border-radius: var(--border-radius);
-  color: var(--white);
+  color: var(--input-text);
 `
 
 export default InputText

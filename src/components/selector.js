@@ -4,7 +4,7 @@ const SelectorStyled = styled.select`
   border: none;
   padding-inline: var(--space-2);
   font: var(--body2-semi-bold);
-  color: var(--white);
+  color: var(--title-color);
   background-color: var(--button-bg);
   border-radius: var(--border-radius);
 `

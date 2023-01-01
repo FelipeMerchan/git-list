@@ -12,7 +12,7 @@ const FiltersStyled = styled.div`
     margin: 0;
     margin-block-end: var(--space-3); 
     font: var(--headline2-semi-bold);
-    color: var(--white);
+    color: var(--title-color);
   }
 
   .action-list {

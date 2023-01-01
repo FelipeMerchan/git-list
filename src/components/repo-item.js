@@ -48,7 +48,7 @@ const RepoItemStyled = styled.div`
     padding-block: var(--space);
     font: var(--caption-medium);
     color: var(--primary);
-    background-color: #15223A;
+    background-color: var(--badge-bg);
     border-radius: var(--space-4);
   }
 
