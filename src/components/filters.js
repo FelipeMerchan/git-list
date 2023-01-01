@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import InputText from './input-text'
@@ -25,10 +26,16 @@ const FiltersStyled = styled.div`
   }
 `
 
-function Filters({ repoListCount, setSearch }) {
-  console.log('render')
+function Filters({ allLanguages, repoListCount, setSearch, setFilterByLanguage }) {
+  const [languageSelected, setLanguageSelected] = useState('')
+
   function handleChange(event) {
     setSearch(event.target.value)
+  }
+
+  function handleSelect(event) {
+    setLanguageSelected(event.target.value)
+    setFilterByLanguage(event.target.value)
   }
 
   return (
@@ -44,17 +51,20 @@ function Filters({ repoListCount, setSearch }) {
         />
         <div className='select-list'>
           <Selector>
+            <option value='tipo' disabled>Tipo</option>
             <option value='all'>all</option>
             <option value='forks'>forks</option>
           </Selector>
-          <Selector>
-            <option value='lenguaje' disabled>lenguaje</option>
-            <option value='html'>html</option>
-            <option value='css'>css</option>
-            <option value='javascript'>javascript</option>
+          <Selector value={languageSelected} onChange={handleSelect}>
+            <option value=''>Lenguaje</option>
+            {
+              allLanguages.map(language => (
+                <option value={language} key={language}>{language}</option>
+              ))
+            }
           </Selector>
           <Selector>
-            <option value='ordenar' disabled>ordenar</option>
+            <option value='ordenar' disabled>Ordenar</option>
             <option value='stars'>stars</option>
           </Selector>
         </div>

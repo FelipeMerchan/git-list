@@ -8,6 +8,7 @@ import RepoList from './components/repo-list';
 import Modal from './components/modal'
 import Search from './components/search';
 import { getRepos, getUser } from './services/users';
+import { getAllLanguajes } from './utils/getAllLanguajes';
 
 function App() {
   const params = useParams()
@@ -19,6 +20,8 @@ function App() {
   const [repos, setRepos] = useState([])
   const [modal, setModal] = useState(false)
   const [search, setSearch] = useState('')
+  const [allLanguages, setAllLanguages] = useState([])
+  const [filterByLanguage, setFilterByLanguage] = useState('')
 
   useEffect(() => {
     getUser(username).then(({ data, isError }) => {
@@ -37,6 +40,7 @@ function App() {
       }
 
       setRepos(data)
+      setAllLanguages(getAllLanguajes(data))
     })
   }, [username])
 
@@ -46,9 +50,18 @@ function App() {
       {/* Profile */}
       <Profile {...user} />
       {/* Filers */}
-      <Filters repoListCount={repos.length} setSearch={setSearch} />
+      <Filters
+        allLanguages={allLanguages}
+        repoListCount={repos.length}
+        setSearch={setSearch}
+        setFilterByLanguage={setFilterByLanguage}
+      />
       {/* Repo List */}
-      <RepoList search={search} repoList={repos} />
+      <RepoList
+        filterByLanguage={filterByLanguage}
+        repoList={repos}
+        search={search}
+      />
       {/* Search */}
       <Search setModal={setModal} />
     </Layout>
