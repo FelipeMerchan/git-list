@@ -5,13 +5,39 @@ import Icon from './icon'
 
 const ProfileStyled = styled.div`
   grid-area: profile;
+  display: grid;
+  grid-template-areas: "user-data" "user-metadata" "actions";
+  gap: var(--space-3);
+  margin-block-end: var(--space-5);
+
+  @media screen and (min-width: 1024px) {
+    display: initial;
+  }
+
+  .user-info {
+    grid-area: user-data;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    @media screen and (min-width: 1024px) {
+      display: initial;
+    }
+  }
 
   .avatar {
+    inline-size: 5rem;
+    block-size: 5rem;
     box-sizing: border-box;
-    margin-block-end: var(--space-3);
     border: 1px solid var(--grey-2);
     border-radius: 50%;
     overflow: hidden;
+
+    @media screen and (min-width: 1024px) {
+      inline-size: 100%;
+      block-size: auto;
+      margin-block-end: var(--space-3);
+    }
   }
 
   .name {
@@ -22,9 +48,13 @@ const ProfileStyled = styled.div`
   }
   
   .username {
+    margin: 0;
     margin-block-start: var(--space);
-    margin-block-end: var(--space-3);
     font: var(--headline2-ligth);
+
+    @media screen and (min-width: 1024px) {
+      margin-block-end: var(--space-3);
+    }
   }
 
   .info {
@@ -35,12 +65,38 @@ const ProfileStyled = styled.div`
     font: var(--body2-semi-bold);
     color: var(--grey);
     text-decoration: none;
+
+    &:first-child {
+      margin-block-start: 0;
+    }
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+
+    svg {
+      path {
+        stroke: var(--grey);
+      }
+    }
   }
 
   .buttons {
+    grid-area: actions;
     display: flex;
     gap: var(--space);
-    margin-block: var(--space-3);
+    
+    @media screen and (min-width: 1024px) {
+      margin-block: var(--space-3);
+    }
+
+    & > * {
+      flex: 1;
+    }
+  }
+
+  .user-metadata {
+    grid-area: user-metadata;
   }
 
   a:hover {
@@ -63,15 +119,19 @@ function Profile(props) {
 
   return (
     <ProfileStyled>
-      <img
-        className='avatar'
-        width='278'
-        height='278'
-        src={avatar_url}
-        alt=''
-      />
-      <p className='name'>{name}</p>
-      <p className='username'>{login}</p>
+      <div className='user-info'>
+        <img
+          className='avatar'
+          width='278'
+          height='278'
+          src={avatar_url}
+          alt={name}
+        />
+        <div>
+          <p className='name'>{name}</p>
+          <p className='username'>{login}</p>
+        </div>
+      </div>
       <div className='buttons'>
         <Button
           className='custom'
@@ -89,31 +149,33 @@ function Profile(props) {
           }
         />
       </div>
-      <p className='bio info'>
-        {bio}
-      </p>
-      <p className='followers info'>
-        * {followers} <span>followers</span> <span>*</span> {following} <span>following</span>
-      </p>
-      <p className='location info'>
-        * {location}
-      </p>
-      <a
-        className='info'
-        href={blog}
-        target='_blank'
-        rel='noreferrer'
-      >
-        {blog}
-      </a>
-      <a
-        className='info'
-        href={`https://twitter.com/${twitter_username}`}
-        target='_blank'
-        rel='noreferrer'
-      >
-        @{twitter_username}
-      </a>
+      <div className='user-metadata'>
+        <p className='bio info'>
+          {bio}
+        </p>
+        <p className='followers info'>
+          <Icon name='user' /> {followers} <span>followers</span> <span>*</span> {following} <span>following</span>
+        </p>
+        <p className='location info'>
+          <Icon name='location' /> {location}
+        </p>
+        <a
+          className='info'
+          href={blog}
+          target='_blank'
+          rel='noreferrer'
+        >
+          <Icon name='link' /> {blog}
+        </a>
+        <a
+          className='info'
+          href={`https://twitter.com/${twitter_username}`}
+          target='_blank'
+          rel='noreferrer'
+        >
+          <Icon name='twitter' /> @{twitter_username}
+        </a>
+      </div>
     </ProfileStyled>
   )
 }

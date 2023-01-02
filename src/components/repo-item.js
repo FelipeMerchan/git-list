@@ -16,6 +16,7 @@ const RepoItemStyled = styled.div`
 
   .title {
     display: flex;
+    align-items: flex-start;
     gap: var(--space-2);
     margin: 0;
 

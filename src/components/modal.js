@@ -48,7 +48,8 @@ const ModalContentStyled = styled.form`
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  inline-size: 24rem;
+  inline-size: 80%;
+  max-inline-size: 24rem;
   padding: var(--space-3);
   color: var(--white);
   transform: translateY(-50%) translatex(-50%);

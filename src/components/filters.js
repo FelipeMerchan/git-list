@@ -9,15 +9,26 @@ const FiltersStyled = styled.div`
   grid-area: filters;
 
   .count {
-    margin: 0;
-    margin-block-end: var(--space-3); 
-    font: var(--headline2-semi-bold);
-    color: var(--title-color);
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: block;
+      margin: 0;
+      margin-block-end: var(--space-3); 
+      font: var(--headline2-semi-bold);
+      color: var(--title-color);
+    }
   }
 
   .action-list {
     display: flex;
+    flex-direction: column;
     gap: var(--space-2);
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: initial;
+      gap: var(--space-2);
+    }
   }
 
   .select-list {
